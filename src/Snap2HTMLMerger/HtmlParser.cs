@@ -42,7 +42,7 @@ public partial class HtmlParser(string htmlPath)
             SnapInfo snapInfo = new()
             {
                 Path = path,
-                ModifiedDate = modifiedDate,
+                ModifiedDate = Util.ConvertDateTime(modifiedDate),
                 TotalSize = size,
                 AssociatedSnapFileInfoIndexes = indexes,
             };
@@ -50,6 +50,9 @@ public partial class HtmlParser(string htmlPath)
             var fileArray = array[1..^2];
             foreach (var file in fileArray)
             {
+                var fileInfo = file.Split('*');
+                if (fileInfo.Length != 3 || fileInfo[0] == "" || fileInfo[1] == "") continue;
+                
                 var fileName = file.Split('*')[0];
                 var fileSize = Convert.ToInt64(file.Split('*')[1]);
                 var fileModifiedDate = file.Split('*')[2];
@@ -57,7 +60,7 @@ public partial class HtmlParser(string htmlPath)
                 {
                     FileName = fileName,
                     Size = fileSize,
-                    ModifiedDate = fileModifiedDate,
+                    ModifiedDate = Util.ConvertDateTime(fileModifiedDate),
                 });
             }
             result.SnapInfos.Add(snapInfo);

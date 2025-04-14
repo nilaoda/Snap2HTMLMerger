@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <Version>1.0.1</Version>
         <OutputType>Exe</OutputType>
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -13,7 +14,6 @@
         <StackTraceSupport>false</StackTraceSupport>
         <MetadataUpdaterSupport>false</MetadataUpdaterSupport>
         <EventSourceSupport>false</EventSourceSupport>
-        <InvariantGlobalization>true</InvariantGlobalization>
         <UseSystemResourceKeys>true</UseSystemResourceKeys>
     </PropertyGroup>
 
